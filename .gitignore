@@ -1,2 +1,4 @@
 frontend/generated/
 target/
+node_modules/
+webpack.generated.js
