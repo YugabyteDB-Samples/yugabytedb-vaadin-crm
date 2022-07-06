@@ -47,20 +47,48 @@ spring.datasource.password=<YOUR_PASSWORD>
     --base_dir=/home/yugabyte/yb_data --daemon=false
   ```
 
-2. Provide connection parameters in the `yugabytedb-vaadin-crm/src/main/resources/application.properties` file:
+2. Make sure all 3 nodes are running: [http://127.0.0.1:7001](http://127.0.0.1:7001)
+ 
+3. Provide connection parameters in the `yugabytedb-vaadin-crm/src/main/resources/application.properties` file:
   ```yaml
-  spring.datasource.url=jdbc:postgresql://us-west-2.290e0df9-a6d2-4508-bde9-3370d1669d72.aws.ybdb.io:5433/yugabyte?ssl=true&sslmode=verify-full&sslrootcert=<YOUR_ROOT_CERT_PATH>
-spring.datasource.username=<YOUR_USER>
-spring.datasource.password=<YOUR_PASSWORD>
+  spring.datasource.url=jdbc:postgresql://127.0.0.1:5433/yugabyte
+  spring.datasource.username=yugabyte
+  spring.datasource.password=yugabyte
   ```
 
 ### PostgreSQL
 
+1. Start a PostgreSQL instance in Docker:
+  ```shell
+  docker run --name postgresql -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password \
+  -p 5432:5432 -v ~/postgresql_data/:/var/lib/postgresql/data -d postgres
+  ```
+2. Provide connection parameters in the `yugabytedb-vaadin-crm/src/main/resources/application.properties` file:
+  ```yaml
+  spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/postgres
+  spring.datasource.username=postgres
+  spring.datasource.password=password
+  ```
+
 ## Running Application
 
-The project is a standard Maven project. To run it from the command line,
-type `mvnw` (Windows), or `./mvnw` (Mac & Linux), then open
-http://localhost:8080 in your browser.
+The project is a standard Maven project. To run it from the command line:
+
+1. Try to build it (making sure you dev environment is fully set):
+  ```shell
+  mvn clean package
+  ```
+
+2. Start the app:
+  ```shell
+  mvn spring-boot:run 
+  ```
+
+3. Open http://localhost:8080 in your browser (unless it's opened automatically).
+
+4. Log in using the following credentials:
+  * username = `user`
+  * password = `password`
 
 You can also import the project to your IDE of choice as you would with any
 Maven project. Read more on [how to import Vaadin projects to different 
