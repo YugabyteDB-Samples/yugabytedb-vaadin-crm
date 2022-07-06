@@ -2,6 +2,22 @@
 
 This is a simple customer relationships management (CRM) application that uses Vaadin as a web framework and YugabyteDB (or PostgreSQL) as a database. The app was created from the following [Vaadin tutorial](https://vaadin.com/docs/latest/tutorial) and modified to support YugabyteDB.
 
+<!-- vscode-markdown-toc -->
+
+- [Simple CRM With Vaadin and YugabyteDB](#simple-crm-with-vaadin-and-yugabytedb)
+  - [Starting Database](#starting-database)
+    - [YugabyteDB Managed](#yugabytedb-managed)
+    - [YugabyteDB Local Cluster](#yugabytedb-local-cluster)
+    - [PostgreSQL](#postgresql)
+  - [Running Application](#running-application)
+  - [Project Structure](#project-structure)
+
+<!-- vscode-markdown-toc-config
+    numbering=false
+    autoSave=true
+    /vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
 ## Starting Database
 
 The application works with PostgreSQL and YugabyteDB. Use any of the options below to provision a database instance.
