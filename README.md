@@ -1,7 +1,21 @@
-# Flow CRM Tutorial
+# Simple CRM With Vaadin and YugabyteDB
 
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
+This is a simple customer relationships management (CRM) application that uses Vaadin as a web framework and YugabyteDB (or PostgreSQL) as a database. The app was created from the following [Vaadin tutorial](https://vaadin.com/docs/latest/tutorial) and modified to support YugabyteDB.
+
+## Start Database
+
+The application works with PostgreSQL and YugabyteDB. Use any of the options below to provision a database instance.
+
+### YugabyteDB Managed
+
+1. Create a [YugabyteDB Managed](https://docs.yugabyte.com/preview/quick-start-yugabytedb-managed/) cluster.
+
+2. Provide the connectivity settings in the `yugabytedb-vaadin-crm/src/main/resources/application.properties` file. The connection string might look as follows:
+  ```yaml
+  spring.datasource.url=jdbc:postgresql://us-west-2.290e0df9-a6d2-4508-bde9-3370d1669d72.aws.ybdb.io:5433/yugabyte?ssl=true&sslmode=verify-full&sslrootcert=<YOUR_ROOT_CERT_PATH>
+spring.datasource.username=<YOUR_USER>
+spring.datasource.password=<YOUR_PASSWORD>
+  ```
 
 ## Running the application
 
